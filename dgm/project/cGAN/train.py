@@ -68,7 +68,6 @@ def train(G: torch.nn.Module,
     G.train()
     D.train()
 
-    # TODO
     # Resetting the epoch losses
     epoch_loss_g = 0
     epoch_loss_d = 0
@@ -150,7 +149,6 @@ def test(G: torch.nn.Module,
     adversarial_loss = torch.nn.BCELoss()
 
     with torch.no_grad():
-        #TODO
         for batch_index, minibatch in enumerate(testloader):
             # Setting the inputs for the adversarial loss
             batch_size = minibatch[0].shape[0]
@@ -196,7 +194,6 @@ def sample(G: torch.nn.Module, sample_size: int, latent_dim: int):
 
     # Generating the samples
     with torch.no_grad():
-        #TODO
         samples = G(torch.randn(sample_size, latent_dim, 1, 1).cuda())
     return samples
 
@@ -245,7 +242,6 @@ def main(args):
     optimizer_G = torch.optim.Adam(G.parameters(), lr=args.lr)
     optimizer_D = torch.optim.Adam(D.parameters(), lr=args.lr)
 
-    #TODO
     train_loss_g, test_loss_g = [], []
     train_loss_d, test_loss_d = [], []
 
